@@ -8,12 +8,14 @@ main() {
     {'nome': 'Ricardo', 'nota': 6.8},
   ];
 
-// a linha 15 é necessária para converter o tipo Object para double e simaplicar o reduce
-  var total = alunos
+// a linha 14 é necessária para converter o tipo Object para double e simaplicar o reduce
+  var notasFinais = alunos
       .map((aluno) => aluno['nota'])
       .map((nota) => (nota as double))
-      .reduce((value, element) => element + value);
+      .where((nota) => nota >= 8.5);
 
-  print(total);
-  print("O valor da média é: ${total / alunos.length}");
+  var total = notasFinais.reduce((value, element) => element + value);
+
+  print(notasFinais);
+  print("O valor da média é: ${total / notasFinais.length}");
 }
